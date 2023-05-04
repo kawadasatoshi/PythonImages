@@ -13,6 +13,3 @@ RUN pip install --upgrade pip
 
 # install python lib 
 RUN pip install -r requirements.txt
-
-# Open 5000 port
-EXPOSE 5000
