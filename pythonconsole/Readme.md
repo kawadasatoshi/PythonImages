@@ -2,21 +2,21 @@
 
 ## commands:コマンド入力
 
-1.move to "pythonconsole" directory（pythonconsoleディレクトリにcdコマンドで移動してください。）
+1. move to "pythonconsole" directory（pythonconsoleディレクトリにcdコマンドで移動してください。）
+
+
+
+2. build pythonconsole image
 
 ```sh
 docker image build -t pythonconsole .
 ```
 
-
-- for windows
+3. run pythonconsole container
 
 ```sh
-docker run -v ./code:/code -d pythonconsole 
+docker run -v ./code:/code pythonconsole 
 ```
-
-- for console
-
 
 
 
