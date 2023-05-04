@@ -1,8 +1,9 @@
 FROM python3.9
 
-COPY ./code /code
+WORKDIR /app
 
-WORK 
+COPY ./code /code
 
 RUN pip install requirements
 
+# CMD ["python", "index.py"]
