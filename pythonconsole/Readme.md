@@ -15,7 +15,7 @@ docker image build -t pythonconsole .
 3. run pythonconsole container
 
 ```sh
-docker run -v ./code:/code pythonconsole 
+docker run -it -v ./code:/code pythonconsole bash
 ```
 
 
