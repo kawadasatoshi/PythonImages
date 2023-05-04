@@ -35,9 +35,15 @@ docker image build -t flask .
 先ほど作成した、flaskイメージコンテナをrunします。
 
 ```sh
-docker run -it -p 5000:80 -v ./code:/code flask bash
+docker run -it -p 80:80 -v ./code:/code flask bash
 ```
 
+コンテナの内部に入ったら、pythonコードを実行しましょう
+
+
+```sh
+python main.py
+```
 
 
 
