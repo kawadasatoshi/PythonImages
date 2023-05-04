@@ -8,6 +8,10 @@
 docker image build -t pythonconsole .
 ```
 
+```sh
+docker image build -t pythonconsole .
+```
+
 
 
 
