@@ -2,7 +2,9 @@
 
 ## commands:コマンド入力
 
-1. move to "pythonconsole" directory : pythonconsoleディレクトリにcdコマンドで移動してください。
+1. move to "pythonconsole" directory :
+
+pythonconsoleディレクトリにcdコマンドで移動してください。
 
 
 
