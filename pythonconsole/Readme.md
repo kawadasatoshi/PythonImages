@@ -15,7 +15,7 @@ git clone https://github.com/kawadasatoshi/PythonImages.git
 pythonconsoleディレクトリにcdコマンドで移動してください。
 
 ```sh
-cd PythonImages/pythonconsole
+cd PythonImages/pythonconsole/
 ```
 
 
@@ -32,9 +32,4 @@ docker run -it -v ./code:/code pythonconsole bash
 ```
 
 
-
-
-
-
-## 
 
