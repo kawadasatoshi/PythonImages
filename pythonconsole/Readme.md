@@ -29,10 +29,6 @@ pythonconsoleイメージをbuildします。
 docker image build -t pythonconsole .
 ```
 
-- `docker image build`では、dockerイメージをビルドし、コンテナを作成する基本的なコマンド
-
-- `-t`フラグで、`pythonconsole`という名前をつけています。
-
 
 4. run pythonconsole container
 
@@ -42,9 +38,7 @@ docker image build -t pythonconsole .
 docker run -it -v ./code:/code pythonconsole bash
 ```
 
-- `docker run `は、dockerコンテナを実行するコマンドです。
 
-- `-it`フラグは、**コンテナ内部とやりとりするためのコマンド**で、`bash`コマンドと組み合わせることで、ssh接続されたかのように、コンテナ内部からLinuxコマンドを実行することができます。
 
 
 
