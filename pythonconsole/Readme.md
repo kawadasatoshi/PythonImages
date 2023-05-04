@@ -2,7 +2,7 @@
 
 ## commands:コマンド入力
 
-
+1.move to "pythonconsole" directory（pythonconsoleディレクトリにcdコマンドで移動してください。）
 
 ```sh
 docker image build -t pythonconsole .
@@ -12,14 +12,10 @@ docker image build -t pythonconsole .
 - for windows
 
 ```sh
-docker run -p 5000:80 -v ${PWD}/code:/code -d pythonconsole 
+docker run -v ./code:/code -d pythonconsole 
 ```
 
 - for console
-
-```sh
-docker run -p 5000:80 -v ${PWD}/code:/code -d pythonconsole 
-```
 
 
 
