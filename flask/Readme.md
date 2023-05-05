@@ -48,7 +48,7 @@ python main.py
 ブラウザから http://localhost/
 
 にアクセスしてみてください。
-
+    
 
 
 
