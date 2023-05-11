@@ -1,0 +1,22 @@
+{
+    "files.encoding": "utf8bom",
+    "editor.unicodeHighlight.nonBasicASCII": false,
+    "editor.unicodeHighlight.invisibleCharacters": false,
+    "workbench.editorAssociations": {
+        "*.zip": "default"
+    },
+    "workbench.colorTheme": "Default Dark+",
+    "security.workspace.trust.untrustedFiles": "open",
+    "vim.useSystemClipboard": true,
+    "vim.insertModeKeyBindings": [
+        {
+            "before": ["j", "j"],
+            "after": ["<Esc>"]
+        }, 
+        {
+            "before": ["ｊ", "ｊ"],
+            "after": ["<Esc>"]
+        }
+    ],
+    "vim.hlsearch": true
+}
