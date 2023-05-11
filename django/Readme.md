@@ -3,7 +3,7 @@
 ## commands:コマンド入力
 
 
-1. clone this repo
+### 1. clone this repo
 
 本リポジトリのソースコードをダウンロードします。
 
@@ -12,7 +12,7 @@ git clone https://github.com/kawadasatoshi/PythonImages.git
 ```
 
 
-2. move to "django" directory
+### 2. move to "django" directory
 
 djangoディレクトリにcdコマンドで移動します。
 
@@ -21,7 +21,7 @@ cd PythonImages/django/
 ```
 
 
-3. build django image
+### 3. build django image
 
 djangoイメージをbuildします。
 
@@ -30,7 +30,7 @@ docker image build -t django .
 ```
 
 
-4. run django container
+### 4. run django container
 
 - (for mac or linux user):先ほど作成した、djangoイメージコンテナをrunします。
 
@@ -44,15 +44,26 @@ docker run -it -p 80:80 -v ./code:/code django bash
 docker run -it -p 80:80 -v ${PWD}/code:/code django bash
 ```
 
-5. entryscript起動
+
+### 5. スクリプト実行起動
 
 コンテナの内部に入ったら、pythonコードを実行しましょう
 
 ```sh
-django-admin startproject /code/mysite
-python manage.py startapp myapp
+django-admin startproject mysite
+python mysite/manage.py startapp myapp
+python mysite/manage.py migrate
 ```
 
+
+### 6. runserver
+
+```sh
+python mysite/manage.py runserver 0.0.0.0:80
+```
+
+
+### 7.アクセス
 
 ブラウザから http://localhost/
 
