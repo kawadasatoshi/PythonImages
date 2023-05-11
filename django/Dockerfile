@@ -14,3 +14,5 @@ RUN pip install --upgrade pip
 # install python lib 
 RUN pip install -r requirements.txt
 
+# run django server
+CMD ["python", "mysite/manage.py", "runserver", "0.0.0.0:80"]

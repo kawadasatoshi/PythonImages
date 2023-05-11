@@ -77,6 +77,8 @@ python mysite/manage.py runserver 0.0.0.0:80
 
 ### 8.バックグランドアクセス
 
-
+```sh
+docker run -d -p 80:80 -v ${PWD}/code:/code django
+```
 
 
