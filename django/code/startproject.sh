@@ -1,4 +1,3 @@
 django-admin startproject /mysite
-cd /mysite
-python manage.py startapp myapp
-python manage.py migrate
+python /mysite/manage.py startapp myapp
+python /mysite/manage.py migrate
