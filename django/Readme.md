@@ -30,12 +30,12 @@ docker image build -t django .
 ```
 
 
-4. run flask container
+4. run django container
 
-先ほど作成した、flaskイメージコンテナをrunします。
+先ほど作成した、djangoイメージコンテナをrunします。
 
 ```sh
-docker run -it -p 80:80 -v ./code:/code flask bash
+docker run -it -p 80:80 -v ./code:/code django bash
 ```
 
 コンテナの内部に入ったら、pythonコードを実行しましょう
