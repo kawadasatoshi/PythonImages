@@ -32,18 +32,27 @@ docker image build -t django .
 
 4. run django container
 
-先ほど作成した、djangoイメージコンテナをrunします。
+- (for mac or linux user):先ほど作成した、djangoイメージコンテナをrunします。
 
 ```sh
 docker run -it -p 80:80 -v ./code:/code django bash
 ```
 
-コンテナの内部に入ったら、pythonコードを実行しましょう
-
+- (for windows user):なお、windowsの方は次のコマンドでフルパスでボリュームをマウントします。
 
 ```sh
-python main.py
+docker run -it -p 80:80 -v ${PWD}/code:/code django bash
 ```
+
+5. entryscript起動
+
+コンテナの内部に入ったら、pythonコードを実行しましょう
+
+```sh
+django-admin startproject /code/mysite
+python manage.py startapp myapp
+```
+
 
 ブラウザから http://localhost/
 
