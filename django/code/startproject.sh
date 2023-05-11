@@ -1,4 +1,4 @@
-cd /code
-django-admin startproject mysite
-cd /code/mysite
+django-admin startproject /mysite
+cd /mysite
 python manage.py startapp myapp
+python manage.py migrate
