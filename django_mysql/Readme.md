@@ -15,7 +15,7 @@
 ## commands:コマンド入力
 
 
-### 1. clone this repo
+### 1. ソースコードの入手（clone this repo）
 
 本リポジトリのソースコードをダウンロードします。
 
@@ -24,7 +24,7 @@ git clone https://github.com/kawadasatoshi/PythonImages.git
 ```
 
 
-### 2. move to "django_mysql" directory
+### 2. カレントディレクトリ移動（move to "django_mysql" directory）
 
 djangoディレクトリにcdコマンドで移動します。
 
@@ -67,27 +67,27 @@ python mysite/manage.py startapp myapp
 python mysite/manage.py migrate
 ```
 
-**ファイルが作成されればプロジェクトファイルの作成は完了**
+**ファイルが作成されればプロジェクトファイルの作成は完了です！**
 
 `exit`コマンドでコンテナを抜け、`docker-compose.yml`があるディレクトリまで`cd ..`で戻る。
 
 
 
-### 4. docker-composeでbuildする
+### 4. `docker-compose`でイメージを`build`する
 
 ```sh
 docker-compose build
 ```
 
 
-### 5. docker-compose upで起動
+### 5. `docker-compose up`でコンテナ起動
 
 ```sh
 docker-compose up
 ```
 
 
-### 6. アクセス
+### 6. アクセスしてみる
 
 ブラウザから http://localhost/
 
