@@ -15,13 +15,52 @@
 ## commands:コマンド入力
 
 
-### 1. ソースコードの入手（clone this repo）
+## 1. ソースコードの入手（clone this repo）
 
 本リポジトリのソースコードをダウンロードします。
 
 ```sh
 git clone https://github.com/kawadasatoshi/PythonImages.git
 ```
+
+
+### `docker-compose.yml`の解説
+
+```yml
+version: '3'
+
+services:
+  app: #コンテナ一つ目:djangoアプリケーションを稼働させる
+    container_name: django
+    build: ./django
+    volumes:
+     - ./django/code/:/code
+    ports:
+     - 80:80
+    command: python mysite/manage.py runserver 0.0.0.0:80
+    depends_on:
+      - db
+  db: #コンテナ二つ目:データベースについての
+    container_name: mysql
+    build: ./mysql
+    restart: always
+    volumes:
+      - ./mysql/data:/var/lib/mysql
+    ports:
+      - 3306:3306
+    environment:
+      TZ: 'Asia/Tokyo'
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: 'django'
+      MYSQL_USER: 'django'
+      MYSQL_PASSWORD: 'django'
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
+    privileged: true
+```
+
+
+
+
 
 
 ### 2. カレントディレクトリ移動（move to "django_mysql" directory）
