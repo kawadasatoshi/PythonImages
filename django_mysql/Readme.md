@@ -92,7 +92,11 @@ docker-compose down -v
 
 ## mysqlとdjangoを結びつける
 
-### 8.バックグランドアクセス
+### djangoのコードをmysqlに接続するように書き換え
+
+djangoのコードを書き換えます。
+
+書き換える対象は:`django_mysql/django/code/mysite/mysite/settings.py`で、既に存在する変数`DATABASES`を以下のように書き換えてください。
 
 ```py
 DATABASES = {
@@ -107,9 +111,17 @@ DATABASES = {
 }
 ```
 
+### サービス起動
+
+その後サービスを再度起動し
+
 ```sh
 docker-compose up -d
 ```
+
+### マイグレーションを行い、データベースにdjangoのデータを登録
+
+django側のコンテナに入ります。
 
 ```sh
 docker-compose exec app bash
@@ -120,6 +132,33 @@ docker-compose exec app bash
 python mysite/manage.py migrate
 python mysite/manage.py createsuperuser
 ```
+
+### サーバーを起動
+
+```sh
+python mysite/manage.py runserver 0.0.0.0:80
+```
+
+
+## バックグランド起動
+
+
+```sh
+docker-compose up db -d
+```
+
+2秒後ぐらいに...
+
+
+```sh
+docker-compose up app -d
+```
+
+
+
+
+
+
 
 
 
