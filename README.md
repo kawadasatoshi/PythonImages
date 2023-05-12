@@ -18,6 +18,12 @@ this is flask server docker project
 https://github.com/kawadasatoshi/PythonImages/tree/main/flask
 
 
+## django
+
+this is django server docker project
+
+https://github.com/kawadasatoshi/PythonImages/tree/main/django
+
 
 
 
