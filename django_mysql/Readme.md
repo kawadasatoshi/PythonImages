@@ -139,6 +139,7 @@ django側のコンテナに入ります。
 docker-compose exec app bash
 ```
 
+コンテナに入った後は以下のコマンドでマイグレーションを行い、ユーザーデータの作成などを行います。
 
 ```sh
 python mysite/manage.py migrate
