@@ -74,11 +74,36 @@ docker-compose build
 docker-compose up
 ```
 
-### 5. localhostにアクセスして動作確認
 
-http://localhost/
+### 7.アクセス
 
-上記のリンクから動作が確認できれば完了
+ブラウザから http://localhost/
+
+にアクセスしてみてください。
+
+確認ができたら一度サービスを抜けましょう。
+
+1. `Ctrl+C`からサーバーを止めて
+2. `exit`コマンドでサーバーから脱出します。
+
+
+## mysqlとdjangoを結びつける
+
+### 8.バックグランドアクセス
+
+```py
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'django',
+        'USER': 'django',
+        'PASSWORD': 'django',
+        'HOST': 'db',
+        'PORT': '3306',
+    }
+}
+```
+
 
 
 
