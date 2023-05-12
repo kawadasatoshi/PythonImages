@@ -86,6 +86,9 @@ docker-compose up
 1. `Ctrl+C`からサーバーを止めて
 2. `exit`コマンドでサーバーから脱出します。
 
+```sh
+docker-compose down -v
+```
 
 ## mysqlとdjangoを結びつける
 
@@ -105,11 +108,7 @@ DATABASES = {
 ```
 
 ```sh
-docker-compose up db -d
-```
-
-```sh
-docker-compose up app -d
+docker-compose up -d
 ```
 
 ```sh
@@ -118,16 +117,8 @@ docker-compose exec app bash
 
 
 ```sh
+python mysite/manage.py migrate
 python mysite/manage.py createsuperuser
-```
-
-
-```sh
-GRANT ALL PRIVILEGES ON django.* TO 'django'@'%';
-```
-
-```sh
-SELECT Host, User FROM mysql.user;
 ```
 
 
