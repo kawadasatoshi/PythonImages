@@ -61,21 +61,21 @@ python mysite/manage.py migrate
 
 
 
-### 3. docker-composeでbuildする
+### 4. docker-composeでbuildする
 
 ```sh
 docker-compose build
 ```
 
 
-### 4. docker-compose upで起動
+### 5. docker-compose upで起動
 
 ```sh
 docker-compose up
 ```
 
 
-### 7.アクセス
+### 6.アクセス
 
 ブラウザから http://localhost/
 
@@ -92,7 +92,7 @@ docker-compose down -v
 
 ## mysqlとdjangoを結びつける
 
-### djangoのコードをmysqlに接続するように書き換え
+### 7.djangoのコードをmysqlに接続するように書き換え
 
 djangoのコードを書き換えます。
 
@@ -111,7 +111,7 @@ DATABASES = {
 }
 ```
 
-### サービス起動
+### 8.サービス起動
 
 その後サービスを再度起動し
 
@@ -119,7 +119,7 @@ DATABASES = {
 docker-compose up -d
 ```
 
-### マイグレーションを行い、データベースにdjangoのデータを登録
+### 9.マイグレーションを行い、データベースにdjangoのデータを登録
 
 django側のコンテナに入ります。
 
@@ -133,14 +133,14 @@ python mysite/manage.py migrate
 python mysite/manage.py createsuperuser
 ```
 
-### サーバーを起動
+### 10.サーバーを起動
 
 ```sh
 python mysite/manage.py runserver 0.0.0.0:80
 ```
 
 
-## バックグランド起動
+## 11.バックグランド起動
 
 
 ```sh
