@@ -12,42 +12,42 @@ git clone https://github.com/kawadasatoshi/PythonImages.git
 ```
 
 
-### 2. move to "django" directory
+### 2. move to "django_mysql" directory
 
 djangoディレクトリにcdコマンドで移動します。
 
 ```sh
-cd PythonImages/django/
+cd PythonImages/django_mysql/
 ```
 
 
-### 3. build django image
+### 3. Djangoプロジェクトファイルを作ろう（move to "django" and create projectfile）
 
-djangoイメージをbuildします。
+- djangoディレクトリに移動
+
+```sh
+cd django
+```
+
+- djangoイメージファイルをビルド
 
 ```sh
 docker image build -t django .
 ```
 
-
-### 4. run django container
-
-- (for mac or linux user):先ほど作成した、djangoイメージコンテナをrunします。
+- djangoを起動してコンテナ内部に入る
 
 ```sh
+# for mac or linux user
 docker run -it -p 80:80 -v ./code:/code django bash
 ```
 
-- (for windows user):なお、windowsの方は次のコマンドでフルパスでボリュームをマウントします。
-
 ```sh
+# for windows user
 docker run -it -p 80:80 -v ${PWD}/code:/code django bash
 ```
 
-
-### 5. スクリプト実行起動
-
-コンテナの内部に入ったら、pythonコードを実行しましょう
+- コンテナ内部では以下のコマンドを実行
 
 ```sh
 django-admin startproject mysite
@@ -55,28 +55,30 @@ python mysite/manage.py startapp myapp
 python mysite/manage.py migrate
 ```
 
+**ファイルが作成されればプロジェクトファイルの作成は完了**
 
-### 6. runserver
+`exit`コマンドでコンテナを抜け、`docker-compose.yml`があるディレクトリまで`cd ..`で戻る。
+
+
+
+### 3. docker-composeでbuildする
 
 ```sh
-python mysite/manage.py runserver 0.0.0.0:80
+docker-compose build
 ```
 
 
-### 7.アクセス
+### 4. docker-compose upで起動
 
-ブラウザから http://localhost/
+```sh
+docker-compose up
+```
 
-にアクセスしてみてください。
+### 5. localhostにアクセスして動作確認
 
-確認ができたら一度サービスを抜けましょう。
+http://localhost/
 
-1. `Ctrl+C`からサーバーを止めて
-2. `exit`コマンドでサーバーから脱出します。
-
-
-### 8.バックグランドアクセス
-
+上記のリンクから動作が確認できれば完了
 
 
 
