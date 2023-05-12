@@ -19,7 +19,10 @@ services:
     ports:
       - 3333:3306
     environment:
+      TZ: 'Asia/Tokyo'
+      MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: 'django'
+      MYSQL_USER: 'django'
       MYSQL_PASSWORD: 'django'
       MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
-
+    privileged: true

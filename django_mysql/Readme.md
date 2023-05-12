@@ -104,6 +104,34 @@ DATABASES = {
 }
 ```
 
+```sh
+docker-compose up db -d
+```
+
+```sh
+docker-compose up app -d
+```
+
+```sh
+docker-compose exec app bash
+```
+
+
+```sh
+python mysite/manage.py createsuperuser
+```
+
+
+```sh
+GRANT ALL PRIVILEGES ON django.* TO 'django'@'%';
+```
+
+```sh
+SELECT Host, User FROM mysql.user;
+```
+
+
+
 
 
 
