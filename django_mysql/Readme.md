@@ -1,5 +1,17 @@
 
 
+## 本記事で解説すること
+
+- ソースコードの入手
+- Djangoプロジェクトの作成
+- `docker-compose build`を使用したコンテナ作成
+- `docker-compose up`による起動
+- `docker-comopse exec ... bash`によるコンテナ内部へのログイン
+- Djangoプロジェクトの起動確認
+- Djangoプロジェクトのアカウント作成
+- mysqlコンテナの確認
+
+
 ## commands:コマンド入力
 
 
@@ -75,7 +87,7 @@ docker-compose up
 ```
 
 
-### 6.アクセス
+### 6. アクセス
 
 ブラウザから http://localhost/
 
@@ -92,7 +104,7 @@ docker-compose down -v
 
 ## mysqlとdjangoを結びつける
 
-### 7.djangoのコードをmysqlに接続するように書き換え
+### 7. djangoのコードをmysqlに接続するように書き換え
 
 djangoのコードを書き換えます。
 
@@ -111,7 +123,7 @@ DATABASES = {
 }
 ```
 
-### 8.サービス起動
+### 8. サービス起動
 
 その後サービスを再度起動し
 
@@ -119,7 +131,7 @@ DATABASES = {
 docker-compose up -d
 ```
 
-### 9.マイグレーションを行い、データベースにdjangoのデータを登録
+### 9. マイグレーションを行い、データベースにdjangoのデータを登録
 
 django側のコンテナに入ります。
 
@@ -133,14 +145,14 @@ python mysite/manage.py migrate
 python mysite/manage.py createsuperuser
 ```
 
-### 10.サーバーを起動
+### 10. サーバーを起動
 
 ```sh
 python mysite/manage.py runserver 0.0.0.0:80
 ```
 
 
-## 11.バックグランド起動
+## 11. バックグランド起動
 
 
 ```sh
