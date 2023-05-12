@@ -30,8 +30,8 @@ git clone https://github.com/kawadasatoshi/PythonImages.git
 version: '3'
 
 services:
-  app: #コンテナ一つ目:djangoアプリケーションを稼働させる
-    container_name: django
+  app: 
+    container_name: django 
     build: ./django
     volumes:
      - ./django/code/:/code
@@ -40,7 +40,7 @@ services:
     command: python mysite/manage.py runserver 0.0.0.0:80
     depends_on:
       - db
-  db: #コンテナ二つ目:データベースについての
+  db:
     container_name: mysql
     build: ./mysql
     restart: always
@@ -58,6 +58,53 @@ services:
     privileged: true
 ```
 
+#### `app`と`db`について
+
+コンテナ一つ目と二つ目。
+それぞれdjangoアプリケーションとmysqlサービスを稼働させます。
+**ここの名前はdocker-compose関連のサービスでよく扱う。**
+
+以下のコマンドでは`app`だけ指定してコンテナを起動する
+
+```sh
+docker-compose up app
+```
+
+##### 注意
+
+個々の名前を指定して`docker`コマンドを指定しても基本動かない。
+
+例えば以下のコマンドでは、`app`を指定しているが、`docker`コマンドなので動かない。
+
+```sh
+docker exec app bash
+```
+
+`docker-comopse`コマンドに置き換えることで動きます。
+
+```sh
+docker-compose exec app bash
+```
+
+
+
+
+#### `container_name`:コンテナ名を指定する
+
+コンテナをビルドする際に、名前を付与します。
+`app`や`db`と違い、`docker`コマンドで扱われる。
+
+
+```yml
+container_name: django 
+```
+
+```sh
+docker exec -it django bash
+```
+
+
+#### `build`:
 
 
 
@@ -184,13 +231,6 @@ docker-compose exec app bash
 python mysite/manage.py migrate
 python mysite/manage.py createsuperuser
 ```
-
-### 10. サーバーを起動
-
-```sh
-python mysite/manage.py runserver 0.0.0.0:80
-```
-
 
 ## 11. バックグランド起動
 
