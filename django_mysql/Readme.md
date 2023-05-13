@@ -12,10 +12,9 @@
 - mysqlコンテナの確認
 
 
-## commands:コマンド入力
 
 
-## 1. ソースコードの入手（clone this repo）
+## 第一章：ソースコードの入手と解説
 
 本リポジトリのソースコードをダウンロードします。
 
@@ -86,9 +85,6 @@ docker exec app bash
 docker-compose exec app bash
 ```
 
-
-
-
 #### `container_name`:コンテナ名を指定する
 
 コンテナをビルドする際に、名前を付与します。
@@ -104,11 +100,59 @@ docker exec -it django bash
 ```
 
 
-#### `build`:
+#### `build`:ビルドする場所を指定する
+
+それぞれのコンテナのDockerfileの場所を指定する。
+
+以下の例では`django`ディレクトリの配下にあるDockerfileを指定します。
+
+```sh
+build: ./django
+```
+
+#### `volumes`:コンテナとローカルのフォルダーをつなげる
+
+コンテナ内部のファイルシステムがホストにあるフォルダーをマウントする。
+
+以下の例では`django/code`とコンテナ内部のルート直下にある`code`を繋げています。
+
+```sh
+volumes:
+ - ./django/code/:/code
+```
+
+今後djangoのコマンドを使用してdjangoのアプリケーションを構築する際、**この/codeディレクトリの中にpythonファイルが作成されます**
+
+あるいは、`mysql`のデータが詰まったコンテナをローカルとつなげることで、コンテナ自体を削除しても再度コンテナを立ち上げることでデータがバックアップされている状態を作り出しています。
+
+#### `ports`:コンテナとローカルのポートを繋げる
+
+以下のように、コンテナ内部の`80番ポート`をローカルにある`80番ポート`と繋げることで、
+外部のPCからコンテナ内部への通信が可能になります。
+
+```sh
+    ports:
+     - 80:80
+```
+
+#### `environment`:環境変数を設定
+
+今回はmysqlコンテナの構築で使用。
+
+mysqlのコンテナは環境変数にデータベースの情報を書き込むことで、その情報をもとにデータベースが構築されるという特徴があります。
+
+```sh
+    environment:
+      TZ: 'Asia/Tokyo'
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: 'django'
+      MYSQL_USER: 'django'
+      MYSQL_PASSWORD: 'django'
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'true'
+```
 
 
-
-
+## 第二章:djangoプロジェクトの構築
 
 ### 2. カレントディレクトリ移動（move to "django_mysql" directory）
 
@@ -188,7 +232,7 @@ docker-compose up
 docker-compose down -v
 ```
 
-## mysqlとdjangoを結びつける
+## 第三章:mysqlとdjangoを結びつける
 
 ### 7. djangoのコードをmysqlに接続するように書き換え
 
